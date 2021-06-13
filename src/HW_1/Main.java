@@ -24,6 +24,7 @@ public class Main {
 
 
     public static void main(String[] args) {
+        //Вызываем все методы
         name();
         dataType();
         calculate();
@@ -61,10 +62,10 @@ public class Main {
 
 
     public static void calculate() {
-        Scanner add = new Scanner(System.in);
+        Scanner add = new Scanner(System.in);//Scanner класс для считывания введенных данных
         System.out.println("\nЗАДАНИЕ №3 \nНаписать метод вычисляющий выражение a * (b + (c / d)) и возвращающий результат, \n" +
                 "где a, b, c, d – аргументы этого метода, имеющие тип float.\n \nВведите число a:");
-        float a = add.nextInt();
+        float a = add.nextInt(); //Метод nextLine() обращается к источнику данных, находит там следующую строку, которую он еще не считывал
         System.out.println("Введите число b:");
         float b = add.nextInt();
         System.out.println("Введите число c:");
@@ -72,7 +73,7 @@ public class Main {
         System.out.println("Введите число d:");
         float d = add.nextInt();
         if (d == 0) {
-            throw new RuntimeException("Нельзя делить на ноль!");
+            System.out.println("Нельзя делить на ноль!");
         } else {
             System.out.print("Результат вычислений по формуле a*(b+(c/d)) равен: " + (a * (b + (c / d))) + "\n");
         }
@@ -113,7 +114,7 @@ public class Main {
         System.out.println("\nЗАДАНИЕ №6 \nНаписать метод, которому в качестве параметра передается целое число. Метод должен вернуть true,\n" +
                 "если число отрицательное, и вернуть false если положительное.\n \nВведите ваше число:");
         int q = add3.nextInt();
-        return q<0;
+        return q < 0;
     }
 
 
@@ -131,7 +132,7 @@ public class Main {
         System.out.println("\nЗАДАНИЕ №8 \n*Написать метод, который определяет, является ли год високосным, и выводит сообщение в консоль.\n" +
                 "Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный.\n \nВведите год:");
         int y = add5.nextInt();
-        if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+        if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {//если переменная по модулю 4 равен 0, а параметр по модулю 100 не равен 0 или параметр по модулю 400 равен нулю, то это високосный год
             System.out.println("Год високосный");
         } else {
             System.out.println("Год не високосный");
