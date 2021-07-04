@@ -4,9 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToe {
-    final int size = 4;
+    final int size = 3;
+    final int winSize = 2;
     char[][] map = new char[size][size];
-    final char cNull = '•', player = 'x', cpu = 'o';
+    final char cNull = ' ', player = 'X', cpu = 'O';
     Scanner sc = new Scanner(System.in);
     Random r = new Random();
 
@@ -26,7 +27,6 @@ public class TicTacToe {
                 System.out.println("Ничья");
                 break;
             }
-
             g.aiTurn(g.cpu);
             g.printMap();
             if (g.checkWin(g.cpu)) {
@@ -37,8 +37,6 @@ public class TicTacToe {
                 System.out.println("Ничья");
                 break;
             }
-
-
         }
     }
 
@@ -51,10 +49,10 @@ public class TicTacToe {
     }
 
     void printMap() {
-        for (int i = 0; i < size + 1; i++) {
-            System.out.print(" " + i + " ");
+        System.out.print("   ");
+        for (int i = 0; i < size ; i++) {
+            System.out.print(" " + (i + 1) + " ");
         }
-        System.out.print(">X");
         System.out.println();
         for (int i = 0; i < size; i++) {
             System.out.print(" " + (i + 1) + "  ");
@@ -63,15 +61,15 @@ public class TicTacToe {
             }
             System.out.println(i + 1);
         }
-        System.out.print(" vY ");
+        System.out.print("    ");
         for (int i = 1; i <= size; i++) System.out.print(i + "  ");
-        System.out.println("O\n");
+        System.out.println("\n");
     }
 
     void playerTurn() {
         int x, y;
         do {
-            System.out.println("Ваш ход. Введите координаты >X vY");
+            System.out.println("Ваш ход. Введите координаты X Y");
             x = sc.nextInt() - 1;
             y = sc.nextInt() - 1;
             System.out.println("Ваши координаты: x = " + (x + 1) + ", y = " + (y + 1));
@@ -96,23 +94,23 @@ public class TicTacToe {
             for (int j = 0; j <= size - 1; j++) {
                 if (map[i][j] == c) {
                     countH++;
-                    if (countH == size) return true;
+                    if (countH == winSize) return true;
                 }
 
                 if (map[j][i] == c) {
                     countV++;
-                    if (countV == size) return true;
+                    if (countV == winSize) return true;
                 }
             }
 
             if (map[i][i] == c) {
                 countDiagonalA++;
-                if (countDiagonalA == size) return true;
+                if (countDiagonalA == winSize) return true;
             } else countDiagonalA = 0;
 
             if (map[i][size - 1 - i] == c) {
                 countDiagonalB++;
-                if (countDiagonalB == size) return true;
+                if (countDiagonalB == winSize) return true;
             } else countDiagonalB = 0;
         }
         return false;
@@ -130,7 +128,7 @@ public class TicTacToe {
     void aiTurn(char c) {
         int x = 0, y = 0, countH = 0, countHNull = 0, countV = 0, countVNull = 0, countDiagonalA = 0, countDiagonalB = 0, countDANull = 0, countDBNull = 0;
 
-        System.out.println("Ход Компьютера [" + c + "]:");
+        System.out.println("Ход компьютера: x = " + (x + 1) + ", y = " + (y + 1));
 
         for (int i = 0; i < size; i++) {
             countH = 0;
@@ -158,7 +156,6 @@ public class TicTacToe {
                         }
                     }
                 }
-
             }
 
             if (map[i][i] == c) countDiagonalA++;
@@ -215,7 +212,6 @@ public class TicTacToe {
                         }
                     }
                 }
-
             }
 
             if (map[i][i] == player) countDiagonalA++;
@@ -241,14 +237,6 @@ public class TicTacToe {
             }
         }
 
-        if (!(size % 2 == 0)) {
-            int center = (((size + 1) / 2) - 1);
-            if (map[center][center] == cNull) {
-                map[center][center] = c;
-                return;
-            }
-        }
-
         if (map[0][0] == cNull) {
             map[0][0] = c;
             return;
@@ -271,6 +259,5 @@ public class TicTacToe {
             y = r.nextInt(size);
         } while (isCellValid(x, y));
         map[y][x] = c;
-        System.out.println("AI X: " + (x + 1) + " Y: " + (y + 1));
     }
 }
