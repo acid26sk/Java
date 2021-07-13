@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
     final int size = 3;
-    final int winSize = 2;
+//    final int winSize = 2;
     char[][] map = new char[size][size];
     final char cNull = ' ', player = 'X', cpu = 'O';
     Scanner sc = new Scanner(System.in);
@@ -94,23 +94,21 @@ public class TicTacToe {
             for (int j = 0; j <= size - 1; j++) {
                 if (map[i][j] == c) {
                     countH++;
-                    if (countH == winSize) return true;
+                    if (countH == size) return true;
                 }
-
                 if (map[j][i] == c) {
                     countV++;
-                    if (countV == winSize) return true;
+                    if (countV == size) return true;
                 }
             }
-
             if (map[i][i] == c) {
                 countDiagonalA++;
-                if (countDiagonalA == winSize) return true;
+                if (countDiagonalA == size) return true;
             } else countDiagonalA = 0;
 
             if (map[i][size - 1 - i] == c) {
                 countDiagonalB++;
-                if (countDiagonalB == winSize) return true;
+                if (countDiagonalB == size) return true;
             } else countDiagonalB = 0;
         }
         return false;
