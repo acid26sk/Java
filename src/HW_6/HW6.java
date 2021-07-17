@@ -1,5 +1,6 @@
 package HW_6;
 
+
 public class HW6 {
     public static void main(String[] args) {
         Cat cat = new Cat();
