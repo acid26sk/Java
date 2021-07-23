@@ -7,9 +7,9 @@ public class MyArraySizeException extends ArrayStoreException {
         return size;
     }
 
-    public MyArraySizeException(int size) {
-        this.size = size;
-    }
+//    public MyArraySizeException(int size) {
+//        this.size = size;
+//    }
 
     public MyArraySizeException(String s, int size) {
         super(s);

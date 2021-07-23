@@ -7,10 +7,10 @@ public class MyArrayDataException extends NumberFormatException {
         return "[" + firstCoordinate + "][" + secondCoordinate + "]";
     }
 
-    public MyArrayDataException(int firstCoordinate, int secondCoordinate) {
-        this.firstCoordinate = firstCoordinate;
-        this.secondCoordinate = secondCoordinate;
-    }
+//    public MyArrayDataException(int firstCoordinate, int secondCoordinate) {
+//        this.firstCoordinate = firstCoordinate;
+//        this.secondCoordinate = secondCoordinate;
+//    }
 
     public MyArrayDataException(String s, int firstCoordinate, int secondCoordinate) {
         super(s);
