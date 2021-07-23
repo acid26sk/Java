@@ -14,7 +14,7 @@ public class Main {
         };
 
         try {
-            System.out.println("Сумма значений массива - " + getSum(arr, 4));
+            System.out.println("Сумма значений массива равна " + getSum(arr, 4));
         } catch (MyArraySizeException e) {
             System.out.println("Невозможно вычислить сумму массива. Массив имеет неверный размер.");
         } catch (MyArrayDataException e) {
