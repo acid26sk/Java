@@ -7,7 +7,7 @@ import HW_9.exceptions.MyArraySizeException;
 public class Main {
     public static void main(String[] args) {
         String[][] arr = {
-                {"1", "2", "3", "4"},
+                {"1", "-9", "3", "4"},
                 {"5", "6", "5", "8"},
                 {"11", "12", "13", "14"},
                 {"15", "16", "17", "18"},
